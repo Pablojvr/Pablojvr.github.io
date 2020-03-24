@@ -1,3 +1,16 @@
+<?php
+
+
+if (isset($_SESSION['nombre'])){
+
+  require_once 'login.php';
+  die();
+
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
