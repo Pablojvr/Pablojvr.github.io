@@ -1,12 +1,9 @@
 <?php
 
-
-if (isset($_SESSION['nombre'])){
-
-  require_once 'login.php';
-  die();
-
-}
+  if(!isset($_SESSION["NombreUsuario"]) && !isset($_SESSION["ClaveUsuario"]) ){
+    require_once 'login.php';
+    exit();
+  }
 
 ?>
 
