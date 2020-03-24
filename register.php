@@ -42,7 +42,7 @@
 					<span class="txt1 p-b-11">
 						Nombre de Usuario	
 					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Ingresa un nombre">
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Ingrese un nombre">
 						<input class="input100" type="text" name="username" >
 						<span class="focus-input100"></span>
 					</div>
@@ -50,7 +50,7 @@
 					<span class="txt1 p-b-11">
 						Contraseña
 					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Ingresa una contraseña">
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Ingrese una contraseña">
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>

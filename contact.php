@@ -1,5 +1,7 @@
 <?php
 
+  session_start();
+
   if(!isset($_SESSION["NombreUsuario"]) && !isset($_SESSION["ClaveUsuario"]) ){
     require_once 'login.php';
     exit();

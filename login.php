@@ -31,26 +31,43 @@
 </head>
 <body>
 	
+	
+<header class="site-navbar site-navbar-target" role="banner">
+
+<div class="container">
+  <div class="row align-items-center position-relative">
+
+	<div class="col-3 ">
+	  <div class="site-logo">
+		<a href="index.php" class="font-weight-bold">EMP4THY</a>
+	  </div>
+	</div>
+
+
+</div>
+
+</header>
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form class="login100-form validate-form flex-sb flex-w">
 					<span class="login100-form-title p-b-32">
-						Account Login
+						Ingresar
 					</span>
 
 					<span class="txt1 p-b-11">
-						Username
+						Nombre de Usuario
 					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Ingrese un nombre">
 						<input class="input100" type="text" name="username" >
 						<span class="focus-input100"></span>
 					</div>
 					
 					<span class="txt1 p-b-11">
-						Password
+						Contraseña
 					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Ingrese una contraseña">
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
