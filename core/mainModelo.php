@@ -1,6 +1,7 @@
 
 <?php
 
+require_once "configAPP.php";
 class mainModelo{
 
 
@@ -16,7 +17,7 @@ class mainModelo{
         return $enlace;
     }
 
-    protected function ejecutar_consulta_simple($consulta){
+    protected function ejecutarConsultaSimple($consulta){
         $respuesta=self::conectar()->prepare($consulta);
         $respuesta->execute();
         return $respuesta;
@@ -31,14 +32,14 @@ class mainModelo{
         return $output;
     }
     
-    protected function decryption($string){
+    public function decryption($string){
         $key=hash('sha256', SECRET_KEY);
         $iv=substr(hash('sha256', SECRET_IV), 0, 16);
         $output=openssl_decrypt(base64_decode($string), METHOD, $key, 0, $iv);
         return $output;
     }
     
-    protected function generarCodigoAleatorio($letra, $longitud, $num){
+    public function generarCodigoAleatorio($letra, $longitud, $num){
         for($i=1;$i<=$longitud;$i++){
             $numero=rand(0,9);
             $letra.=$numero; 
@@ -46,7 +47,7 @@ class mainModelo{
         return $letra.$num;
     }
 
-    protected function limpiarCadena($cadena){
+    public function limpiarCadena($cadena){
         $cadena=trim($cadena);
         $cadena=stripslashes($cadena);
         $cadena=str_ireplace("<script>","", $cadena);
@@ -62,7 +63,7 @@ class mainModelo{
         return $cadena;
     }
 
-    protected function sweetAlert($datos){
+    public function sweetAlert($datos){
         if($datos['Alerta']=="simple"){
             $alerta="<script>swal(
                 '".$datos['Titulo']."',
@@ -97,4 +98,4 @@ class mainModelo{
     }
 
 
- }
+ }//Fin clase mainModelo
