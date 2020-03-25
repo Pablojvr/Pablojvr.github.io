@@ -59,9 +59,9 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li  class="active"><a href="index.php" class="nav-link">Inicio</a></li>
-                  <li><a href="contact.php" class="nav-link">Empezar</a></li>
-                  <li ><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
+                  <li  class="active"><a href="./index.php" class="nav-link">Inicio</a></li>
+                  <li><a href="./vistas/contact.php" class="nav-link">Empezar</a></li>
+                  <li ><a href="./vistas/about.php" class="nav-link">¿Como Funciona?</a></li>
                 </ul>
               </nav>
             </div>
@@ -78,7 +78,7 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-8">
               <h1 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Muestra tu <span class="typed-words">Atencion</span>.</h1>
-              <p data-aos="fade-up" data-aos-delay="100"><a href="contact.php" class="more-29291">¿Tienes algo que decir?</a></p>
+              <p data-aos="fade-up" data-aos-delay="100"><a href="./vistas/contact.php" class="more-29291">¿Tienes algo que decir?</a></p>
             </div>
           </div>
         </div>

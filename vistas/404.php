@@ -46,7 +46,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="index.html" class="font-weight-bold">Emp4thy</a>
+                <a href="../index.php" class="font-weight-bold">Emp4thy</a>
               </div>
             </div>
 
@@ -59,9 +59,9 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li ><a href="index.php" class="nav-link">Inicio</a></li>
+                  <li ><a href="../index.php" class="nav-link">Inicio</a></li>
                   <li><a href="contact.php" class="nav-link">Empezar</a></li>
-                  <li class="active" ><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
+                  <li class="active"><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
                 </ul>
               </nav>
             </div>
@@ -77,8 +77,9 @@
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Creemos en la empatia del ser humano en tiempos de crisis, deja que alguien mas te lea y lee a otros, recuerda que alguien ha confiado en tus oido para ser escuchado.</h2>
-              <p data-aos="fade-up" data-aos-delay="100"><a href="#" class="more-29291">Compartelo</a></p>
+              <h1 class="mb-5 text-primary font-weight-bold" >Error 404</h1>
+              <h3 class="mb-5 text-primary font-weight-bold" >Pagina no encontrada ):</h3>
+              <p data-aos="fade-up" data-aos-delay="100"><a href="index.php" class="more-29291">Regresar al menú principal</a></p>
             </div>
           </div>
         </div>
