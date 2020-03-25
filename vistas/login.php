@@ -27,6 +27,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../css/util2.css">
 	<link rel="stylesheet" type="text/css" href="../css/main2.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<script src="../js/sweetalert2.min.js"></script>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -51,9 +53,9 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form class="login100-form validate-form flex-sb flex-w" method="POST" autocomplete="off" class="logInForm" >
 					<span class="login100-form-title p-b-32">
-						Ingresar
+						Iniciar Sesion
 					</span>
 
 					<span class="txt1 p-b-11">
@@ -83,7 +85,7 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt3">
+							<a href="register.php" class="txt3">
 								Olvidaste tu contraseña?
 							</a>
 						</div>
@@ -97,6 +99,17 @@
 					
 
 				</form>
+
+<?php
+
+	if(isset($_POST['username']) && isset($_POST['pass']) ){
+
+		require_once "../controladores/loginControlador.php";
+		$login = new loginControlador();
+		echo $login->iniciarSesionControlador();
+	
+	}
+?>
 			</div>
 		</div>
 	</div>

@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/sweetalert2.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/sweetalert2.min.js"></script>
 
   </head>
 
@@ -77,7 +79,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Creemos en la empatia del ser humano en tiempos de crisis, deja que alguien mas te lea y lee a otros, recuerda que alguien ha confiado en tus oidos para ser escuchado.</h2>
+              <h4  class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Creemos en la empatia del ser humano en tiempos de crisis, deja que alguien mas te lea y lee a otros, recuerda que alguien ha confiado en tus oidos para ser escuchado.</h4>
               <p data-aos="fade-up" data-aos-delay="100"><a href="contact.php" class="more-29291">Compartelo</a></p>
             </div>
           </div>
@@ -148,6 +150,7 @@
 
 
     <script src="../js/main.js"></script>
+    
 
   </body>
 

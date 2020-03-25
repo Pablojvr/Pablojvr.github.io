@@ -27,6 +27,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../css/util2.css">
 	<link rel="stylesheet" type="text/css" href="../css/main2.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<script src="../js/sweetalert2.min.js"></script>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -48,9 +50,9 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form method="POST" class="FormularioAjax" data-form="save" class="login100-form validate-form flex-sb flex-w" action="http://localhost/empathy/EMP4THY/ajax/AjaxLogin.php" >
 					<span class="login100-form-title p-b-32">
-					Registrarse
+					Crear Cuenta
 					</span>
 
 					<span class="txt1 p-b-11">
@@ -73,9 +75,16 @@
 					</div>
 					
 					<div class="flex-sb-m w-full p-b-48">
-					
+						<div class="contact100-form-checkbox">
+							
+						<a href="contact.php">Iniciar sesión</a>
+							
+						</div>
 
-						
+						<div>
+							<a href="contact.php" class="txt3">
+							</a>
+						</div>
 					</div>
 
 					<div class="container-login100-form-btn">
@@ -84,7 +93,7 @@
 						</button>
 					</div>
 					
-
+					<div class="RespuestaAjax"></div>
 				</form>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 
   session_start();
 
-  if(!isset($_SESSION["NombreUsuario"]) && !isset($_SESSION["ClaveUsuario"]) ){
+  if(!isset($_SESSION["usuario_EMP"])){
     require_once 'login.php';
     exit();
   }
@@ -20,19 +20,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../css/sweetalert2.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../css/aos.css">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/sweetalert2.min.js"></script>
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -58,7 +58,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="index.php" class="font-weight-bold">EMP4THY</a>
+                <a href="http://localhost/empathy/EMP4THY/" class="font-weight-bold"><?php  echo $_SESSION["usuario_EMP"]  ?></a>
               </div>
             </div>
 
@@ -71,9 +71,9 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li ><a href="./index.php" class="nav-link">Inicio</a></li>
-                  <li  class="active"><a href="./vistas/contact.php" class="nav-link">Empezar</a></li>
-                  <li ><a href="./vistas/about.php" class="nav-link">¿Como Funciona?</a></li>
+                  <li ><a href="../index.php" class="nav-link">Inicio</a></li>
+                  <li  class="active"><a href="contact.php" class="nav-link">Empezar</a></li>
+                  <li ><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
                 </ul>
               </nav>
             </div>
@@ -153,23 +153,23 @@
 
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.0.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/aos.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/jquery.animateNumber.min.js"></script>
+    <script src="../js/jquery.fancybox.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.easing.1.3.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/aos.js"></script>
   
 
-    <script src="js/typed.js"></script>
+    <script src="../js/typed.js"></script>
             <script>
             var typed = new Typed('.typed-words', {
             strings: ["Business"," Startups"," Organization", " Company"],
@@ -183,7 +183,7 @@
             </script>
 
 
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 
   </body>
 

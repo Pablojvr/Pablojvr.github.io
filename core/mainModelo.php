@@ -93,7 +93,21 @@ class mainModelo{
 
 
 
+        }elseif ($datos['Alerta']=="limpiar2"){
+            $alerta="<script>swal({
+                title: '".$datos['Titulo']."',
+                text: '".$datos['Texto']."',
+                icon: '".$datos['Tipo']."',
+                confirmButtonText: 'Iniciar sesión',
+            }).then( function () {
+                $('.FormularioAjax')[0].reset();
+                window.location='contact.php';
+            })</script>";
+
+
+
         }
+        
         return $alerta;
     }
 

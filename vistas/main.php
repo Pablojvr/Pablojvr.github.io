@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <script src="js/sweetalert2.min.js"></script>
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
