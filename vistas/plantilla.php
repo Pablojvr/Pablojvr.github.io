@@ -1,6 +1,7 @@
 
 <?php
 
+ session_start(); 
 
   require_once "./controladores/vistasControlador.php";
 
@@ -16,8 +17,9 @@
 			}
 			
 		else: 
-
-      require_once $vistasR;
+			session_start(['name'=> 'EMP']);
+	  require_once $vistasR;
+	  
 
     endif;
 ?>

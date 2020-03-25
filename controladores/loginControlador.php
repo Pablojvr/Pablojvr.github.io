@@ -1,5 +1,4 @@
 <?php
-
     require_once '../modelos/loginModelo.php';
     require_once '../core/configGeneral.php';
 
@@ -58,6 +57,21 @@
 
 
         }//Fin funcion IniciarSesionControlador
+
+        public function cerrarSesionControlador(){
+        $token=$_GET['Token'];
+        $hora=date("h:i:s a");
+        $datos=[
+            "Usuario" => $_SESSION['usuario_EMP'],
+            "Token_S" => $_SESSION['token_EMP'],
+            "Token" => $token,
+        ];
+
+        return loginModelo::cerrarSesionModelo($datos);
+
+
+
+        }
 
 
 

@@ -12,6 +12,18 @@ class loginModelo extends mainModelo{
         $sql->execute();
         return $sql;
        }
+       protected function cerrarSesionModelo($datos){
+
+        if ($datos['Usuario']!="" &&  $datos['Token_S']==$datos['Token'] ) {
+            session_unset();
+            session_destroy();
+            $respuesta=1;
+
+        }else {
+           $respuesta ="mal token";
+        }
+        return $respuesta;
+      }
 
 
 

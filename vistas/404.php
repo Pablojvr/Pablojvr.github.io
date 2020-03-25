@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 
@@ -62,6 +64,7 @@
                   <li ><a href="../index.php" class="nav-link">Inicio</a></li>
                   <li><a href="contact.php" class="nav-link">Empezar</a></li>
                   <li class="active"><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
+                  
                 </ul>
               </nav>
             </div>

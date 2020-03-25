@@ -1,6 +1,6 @@
+
 <!doctype html>
 <html lang="en">
-
   <head>
     <title>EMP4THY - Let Us Read You</title>
     <meta charset="utf-8">
@@ -48,7 +48,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="index.php" class="font-weight-bold">EMP4THY</a>
+                <a href="index.php" class="font-weight-bold"><?php if(isset($_SESSION["usuario_EMP"])){ echo $_SESSION["usuario_EMP"] . ":)"; }else{ echo "EMP4THY"; } ?></a>
               </div>
             </div>
 
@@ -64,6 +64,7 @@
                   <li  class="active"><a href="./index.php" class="nav-link">Inicio</a></li>
                   <li><a href="./vistas/contact.php" class="nav-link">Empezar</a></li>
                   <li ><a href="./vistas/about.php" class="nav-link">¿Como Funciona?</a></li>
+                  <?php if(isset($_SESSION["usuario_EMP"])){ echo '<li ><a href="'.$_SESSION["token_EMP"].'" class="btn-exit-system"  class="nav-link logout" style=" color:red;">Cerrar Sesion</a></li>'; } ?>
                 </ul>
               </nav>
             </div>

@@ -351,6 +351,85 @@ jQuery(document).ready(function($) {
 
   siteIstotope();
 
+
+
+  $('.btn-exit-system').on('click', function(e){
+	e.preventDefault();
+	
+	var Token = $(this).attr('href');
+
+	swal({
+		title: 'Estas seguro?',
+		text: "La sesión actual será cerrada",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#03A9F4',
+		cancelButtonColor: '#F44336',
+		confirmButtonText: '<i class="zmdi zmdi-run"></i> Yes, cerrar sesión!',
+		cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancelar!'
+	}).then(function(){
+
+		var url1 = location.href;
+		var url2= url1.split("/");
+		if (url2[5]=="index.php" || url2[5]=="" ) {
+			$.ajax({
+				url:'../EMP4THY/ajax/AjaxLogin.php?Token='+Token,
+				success: function(data){
+					if(data){
+
+
+						swal({
+							icon: 'success',
+  							title: 'Bye ):',
+							 text: 'Esperamos vuelvas pronto!',
+							 timer: 2000
+							});
+							setTimeout(function(){ window.location.href = "http://localhost/empathy/EMP4THY/";  },3000)
+						
+					} else {
+						swal({
+							title: 'Ocurrio un error',
+							text: data,
+							type: 'error' 
+						});
+					}
+				}
+	
+	
+			});
+		} else {
+			$.ajax({
+				url:'../ajax/AjaxLogin.php?Token='+Token,
+				success: function(data){
+					if(data){
+						swal({
+							icon: 'success',
+  							title: 'Bye ):',
+							 text: 'Esperamos vuelvas pronto!',
+							 timer: 2000
+							});
+							setTimeout(function(){ window.location.href = "http://localhost/empathy/EMP4THY/";  },3000)
+					} else {
+						swal({
+							title: 'Ocurrio un error',
+							text: data,
+							type: 'error' 
+						});
+					}
+				}
+	
+	
+			});
+
+		}
+
+	
+	});
+});
+
+
+
+
   $('.FormularioAjax').submit(function(e){
 	e.preventDefault();
 

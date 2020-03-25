@@ -5,7 +5,7 @@
   if(!isset($_SESSION["usuario_EMP"])){
     require_once 'login.php';
     exit();
-  }
+  } 
 
 ?>
 
@@ -58,7 +58,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="http://localhost/empathy/EMP4THY/" class="font-weight-bold"><?php  echo $_SESSION["usuario_EMP"]  ?></a>
+                <a href="http://localhost/empathy/EMP4THY/" class="font-weight-bold"><?php  echo $_SESSION["usuario_EMP"] . ":)"  ?></a>
               </div>
             </div>
 
@@ -74,6 +74,7 @@
                   <li ><a href="../index.php" class="nav-link">Inicio</a></li>
                   <li  class="active"><a href="contact.php" class="nav-link">Empezar</a></li>
                   <li ><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
+                  <?php if(isset($_SESSION["usuario_EMP"])){ echo '<li ><a href="'.$_SESSION["token_EMP"].'" class="btn-exit-system"  class="nav-link logout" style=" color:red;">Cerrar Sesion</a></li>'; } ?>
                 </ul>
               </nav>
             </div>
@@ -106,7 +107,7 @@
         <div class="row">
        
           <div class="col-lg-12 mb-5" >
-            <form action="#" method="post">      
+            <form class="FormularioAjax" data-form="save"  method="post">      
               <div class="form-group row">
                 <div class="col-md-12">
                   <textarea name="" id="" class="form-control" placeholder="¿Tienes algo que decir?" cols="30" rows="10"></textarea>
@@ -184,6 +185,7 @@
 
 
     <script src="../js/main.js"></script>
+   
 
   </body>
 
