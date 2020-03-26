@@ -106,6 +106,31 @@ class mainModelo{
 
 
 
+        }elseif ($datos['Alerta']=="respuesta"){
+
+            $alerta="<script>swal({
+                title: '".$datos['Titulo']."',
+                text: '".$datos['Texto']."',
+                icon: '".$datos['Tipo']."',
+                confirmButtonText: 'Responder',
+                footer: '<a href>Necesitas responder para poder publicar un nuevo mensaje ):</a>'
+            }).then( function () {
+                window.location='answer.php';
+            })</script>";
+
+        }elseif ($datos['Alerta']=="limpiar3"){
+            $alerta="<script>swal({
+                title: '".$datos['Titulo']."',
+                text: '".$datos['Texto']."',
+                icon: '".$datos['Tipo']."',
+                confirmButtonText: 'Aceptar',
+            }).then( function () {
+                $('.FormularioAjax')[0].reset();
+                window.location='../index.php';
+            })</script>";
+
+
+
         }
         
         return $alerta;

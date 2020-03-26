@@ -1,15 +1,13 @@
 <?php
-
   session_start();
-  
-  if(!isset($_SESSION["usuario_EMP"])){
-    require_once 'login.php';
-    exit();
-  }
-
   require_once '../controladores/mensajeControlador.php';
+  require_once '../modelos/mensajeModelo.php';
   $resp= new mensajeControlador();
-  
+  $Mm= new mensajeModelo();
+  $numM=$Mm->numeroMensajesModelo($_SESSION["nombre_EMP"])->rowCount();
+  if($numM=0){
+    echo '<script>window.location="main.php"</script>';
+  }
 
 ?>
 
@@ -94,33 +92,35 @@
         <div class="container">
           <div class="row align-items-center justify-content-center">
              <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Recuerda, tus palabras son anonimas, por ello evita dar tu informacion personal.</h2>
-              <p data-aos="fade-up" data-aos-delay="100"><a href="#form" class="more-29291">Empezar</a></p>
+              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Recuerda ser empatico, alguien confió en ti, no lo defraudes ;)</h2>
+              <p data-aos="fade-up" data-aos-delay="100"><a href="#resp" class="more-29291">Leer</a></p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <?php echo $resp->mostrarMensajeControlador();  ?>
 
-    <div id="form" class="site-section bg-left-half">
+
+    <div  class="site-section bg-left-half">
       <div  class="container "> 
       <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Cuentanos</h2>
+              <h2  class="mb-5 text-primary font-weight-bold" >Tu respuesta</h2>
             </div> 
         <div class="row">
        
           <div class="col-lg-12 mb-5" >
-            <form class="FormularioAjax" data-form="insertar" action="http://localhost/empathy/EMP4THY/ajax/AjaxMensaje.php" method="post">      
+            <form id="m" class="FormularioAjax" data-form="insertar" action="http://localhost/empathy/EMP4THY/ajax/AjaxMensaje.php" method="post">      
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea name="mensaje" id="" class="form-control" placeholder="¿Tienes algo que decir?" cols="30" rows="10"></textarea>
+                  <textarea name="respuesta" id="" class="form-control" placeholder="Tomate tu tiempo ;)" cols="30" rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group row">
                 
                 <div class="col-md-3 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Enviar mensaje">
+                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Responder">
                 </div>
               </div>
               <div class="RespuestaAjax"></div>
@@ -158,11 +158,7 @@
     
 
     </div>
-    <?php
     
-    echo $resp->recibirMensajeControlador();
-    
-    ?>
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery-migrate-3.0.0.js"></script>
     <script src="../js/popper.min.js"></script>
