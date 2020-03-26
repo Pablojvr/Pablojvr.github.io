@@ -107,10 +107,10 @@
         <div class="row">
        
           <div class="col-lg-12 mb-5" >
-            <form class="FormularioAjax" data-form="save"  method="post">      
+            <form class="FormularioAjax" data-form="insertar" action="http://localhost/empathy/EMP4THY/ajax/AjaxMensaje.php" method="post">      
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="¿Tienes algo que decir?" cols="30" rows="10"></textarea>
+                  <textarea name="mensaje" id="" class="form-control" placeholder="¿Tienes algo que decir?" cols="30" rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -119,6 +119,7 @@
                   <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Enviar mensaje">
                 </div>
               </div>
+              <div class="RespuestaAjax"></div>
             </form>
           </div>
         </div>  

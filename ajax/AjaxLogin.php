@@ -2,7 +2,6 @@
 require_once "../core/configGeneral.php";
 
 if(isset($_GET['Token'])){
-    echo '<script>alert("llego hasta cerrarsesion Controlador")</script>;';
     require_once "../controladores/loginControlador.php";
     $Lc=new loginControlador();
     echo $Lc->cerrarSesionControlador();

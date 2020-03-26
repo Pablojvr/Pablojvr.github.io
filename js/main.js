@@ -449,15 +449,15 @@ jQuery(document).ready(function($) {
 		textoAlerta="Los datos que enviaras quedaran almacenados en el sistema";
 	}else if(tipo==="delete"){
 		textoAlerta="Los datos serán eliminados completamente del sistema";
-	}else if(tipo==="update"){
-		textoAlerta="Los datos del sistema serán actualizados";
+	}else if(tipo==="insertar"){
+		textoAlerta="Recuerda todo es anonimo, solo tu sabras que escribiste el mensaje :)";
 	}else{
 		textoAlerta="Quieres realizar la operación solicitada";
 	}
 
 
 	swal({
-		title: "¿Estás seguro?",   
+		title: "¿Quieres enviar este post?",   
 		text: textoAlerta,   
 		type: "question",   
 		showCancelButton: true,     
