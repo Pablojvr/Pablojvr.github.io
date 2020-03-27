@@ -69,15 +69,23 @@ require_once "../core/configGeneral.php";
         }
 
         protected function recibirConversacionModelo($codigoSesion){
-            $sql=mainModelo::conectar()->prepare(" select * from mensaje where CuentaUsuario = :Codigo and Estado = 'Leido';");
+            $sql=mainModelo::conectar()->prepare(" select  * from mensaje where CuentaUsuario = :Codigo and Estado = 'Leido' order by idMensaje desc limit 1;");
             $sql->bindParam(":Codigo",$codigoSesion);
             $sql->execute();
             return $sql;
         }
 
-        public function numeroConversacionessModelo($destino){
-            $sql=mainModelo::conectar()->prepare("select idMensaje from mensaje where CuentaDestino = :Destino and Estado = 'Leido'" );
+        public function numeroConversacionesModelo($destino){
+            $sql=mainModelo::conectar()->prepare("select idMensaje from mensaje where CuentaUsuario = :Destino and Estado = 'Leido'" );
             $sql->bindParam(":Destino",$destino);
+            $sql->execute();
+            return $sql;
+        }
+
+        protected function finalizarConversacionModelo($codigo){
+
+            $sql=mainModelo::conectar()->prepare("update mensaje set Estado = 'Exito' where CodigoMensaje = :Codigo");
+            $sql->bindParam(":Codigo",$codigo);
             $sql->execute();
             return $sql;
         }

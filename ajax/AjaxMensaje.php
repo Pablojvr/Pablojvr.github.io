@@ -26,13 +26,11 @@ if ( isset($_POST['mensaje']) ){
     
     
     } else {
-        if ( isset($_POST['leido']) ){
+        if ( isset($_POST['mc']) ){
             require_once "../controladores/MensajeControlador.php";
             $insAdmin = new mensajeControlador();
-        
-            if( isset($_POST['leido'])){
-                echo $insAdmin->finalizarConversacionControlador();
-            }
+            echo $insAdmin->finalizarConversacionControlador();
+            
         
         
         }else{

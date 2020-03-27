@@ -63,8 +63,9 @@ require_once '../modelos/mensajeModelo.php';
                 
                     }else{
 
-                        $consulta6=mainModelo::ejecutarConsultaSimple("select CuentaUsuario from usuario ORDER BY RAND(); ");
-                        $row=$consulta6->fetch();
+                        $consulta6=mainModelo::ejecutarConsultaSimple("  select * from usuario ORDER BY RAND(); ");
+                        $numero = $consulta6->rowCount();
+                        $row=$consulta5->fetch();
                         $codigoMensaje=mainModelo::generarCodigoAleatorio("MSJ","8",$numero);
                         $CodigoDestino=$row["CuentaUsuario"];
                         $fechaActual=date("Y-m-d");
@@ -74,18 +75,33 @@ require_once '../modelos/mensajeModelo.php';
                             "CuentaU" => $codigo,
                             "CuentaD" => $CodigoDestino,
                             "Mensaje" => $mensaje,
+                            "Respuesta" => "Sin registro",
                             "Fecha" => $fechaActual,
                             "Hora" => $horaActual,
                             "Estado" => "Pendiente"
                         ]; 
                         
+                        
                         $guardarCuenta=mensajeModelo::enviarMensajeModelo($dataCuenta);
+                        if($guardarCuenta->rowCount()>=1){
+                            $actUsuarioEstado=mainModelo::ejecutarConsultaSimple("update usuario set Estado = 'Inactivo' where CuentaUsuario = '$CodigoDestino';");
                         $alerta=[
                             "Alerta" => "limpiar",
                             "Titulo" => "Post enviado :)",
-                            "Texto" => $CodigoDestino,
+                            "Texto" => "Gracias por confiar, alguien en algún lugar del mundo respondera pronto, paciencia :)",
                             "Tipo" => "success"
                         ];
+                    }else{
+
+                        $alerta=[
+                            "Alerta" => "simple",
+                            "Titulo" => "Post no enviado :(",
+                            "Texto" => $CodigoDestino,
+                            "Tipo" => "error"
+                        ];
+
+                    }
+
 
                     }
 
@@ -345,9 +361,9 @@ require_once '../modelos/mensajeModelo.php';
                 </div>
               </div>
               <div class="form-group row">
-                
+              <input  type="hidden" name="mc" value="'.$row["CodigoMensaje"].'">
                 <div class="col-md-3 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Marcr como leido :)">
+                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Marcar como leido :)">
                 </div>
               </div>
               <div class="RespuestaAjax"></div>
@@ -368,12 +384,30 @@ require_once '../modelos/mensajeModelo.php';
         }
 
         public function finalizarConversacionControlador(){
-
-
             
+            $cM=$_POST["mc"];
+            $resp=mensajeModelo::finalizarConversacionModelo($cM);
+            if($resp->rowCount()>=0){
 
+                $alerta=[
+                    "Alerta" => "limpiar3",
+                    "Titulo" => "Post enviado :)",
+                    "Texto" => "Gracias por confiar, esperamos leerte pronto :)",
+                    "Tipo" => "success"
+                ];
 
+            }else {
+                
+                $alerta=[
+                    "Alerta" => "simple",
+                    "Titulo" => "Ocurrio un error inesperado",
+                    "Texto" => "no se puede actualizar",
+                    "Tipo" => "info"
+                ];
 
+            }
+
+            return mainModelo::sweetAlert($alerta); 
 
         }
 
