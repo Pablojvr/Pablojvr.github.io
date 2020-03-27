@@ -1,13 +1,11 @@
 <?php
-  session_start();
+  @session_start();
   require_once '../controladores/mensajeControlador.php';
   require_once '../modelos/mensajeModelo.php';
   $resp= new mensajeControlador();
   $Mm= new mensajeModelo();
-  $numM=$Mm->numeroMensajesModelo($_SESSION["nombre_EMP"])->rowCount();
-  if($numM=0){
-    echo '<script>window.location="main.php"</script>';
-  }
+  
+  
 
 ?>
 
@@ -19,7 +17,12 @@
   <title>EMP4THY - Let Us Read You</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <?php
+    $numM=$Mm->numeroMensajesModelo($_SESSION["nombre_EMP"])->rowCount();
+    echo $numM;
+     if($numM==0){
+    echo '<script>window.location="../index.php"</script>';
+  } ?>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
 
     <link rel="stylesheet" href="../fonts/icomoon/style.css">

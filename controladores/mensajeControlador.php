@@ -1,7 +1,7 @@
 <?php
 
 require_once '../modelos/mensajeModelo.php';
-session_start();
+@session_start();
     class mensajeControlador extends mensajeModelo{
 
 
@@ -9,7 +9,10 @@ session_start();
 
             $mensaje=mainModelo::limpiarCadena($_POST["mensaje"]);
             $codigo=$_SESSION["nombre_EMP"];
-            
+            $nM=mensajeModelo::numeroMensajesModelo($_SESSION["nombre_EMP"]);
+
+            if($nM->rowCount()==0){
+
             if($mensaje != ""){
 
                 $consulta4=mainModelo::ejecutarConsultaSimple(" select id from usuario ");
@@ -112,6 +115,20 @@ session_start();
 
 
             }
+        }else{
+
+
+            $alerta=[
+                "Alerta" => "limpiar",
+                "Titulo" => "Ocurrio un error inesperado",
+                "Texto" => "Tienes una nueva notificación:D",
+                "Tipo" => "info"
+            ];
+
+
+
+
+        }
 
             return mainModelo::sweetAlert($alerta);
 
@@ -212,7 +229,7 @@ session_start();
                             "Respuesta" => $respuesta,
                             "Fecha" => $fechaActual,
                             "Hora" => $horaActual,
-                            "Estado" => "Exito"
+                            "Estado" => "Leido"
                     ]; 
 
                     $guardarCuenta=mensajeModelo::actualizarMensajeModelo($dataCuenta);
@@ -270,6 +287,90 @@ session_start();
 
 
 
+
+
+
+
+        }
+
+        public function recibirConversacionControlador(){
+
+            $codigoSesion=$_SESSION['nombre_EMP'];
+            $MensajesD=mensajeModelo::recibirConversacionModelo($codigoSesion);
+            $m="";
+            if($MensajesD->rowCount()>=1){
+                $row=$MensajesD->fetch();
+                $_SESSION["MSG"] = $row["CodigoMensaje"];
+                $m.= '
+
+                
+                <div id="form" class="site-section bg-left-half" >
+      <div  class="container " id="resp"> 
+      <div class="col-lg-8">
+              <h2 class="mb-5 text-primary font-weight-bold" >Respuesta anonima</h2>
+            </div> 
+        <div class="row">
+       
+          <div class="col-lg-12 mb-5" >
+            <form>      
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea name="mensaje"  class="form-control" cols="30" rows="10" disabled>'.$row["CuerpoRespuesta"].'</textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+              <input  type="hidden" name="mc" value="'.$row["CodigoMensaje"].'">
+                <div class="col-md-3 mr-auto">
+                </div>
+              </div>
+              
+            </form>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+    <div  class="site-section bg-left-half">
+      <div  class="container "> 
+      <div class="col-lg-8">
+              <h2  class="mb-5 text-primary font-weight-bold" >Tu mensaje</h2>
+            </div> 
+        <div class="row" id="m">
+       
+          <div class="col-lg-12 mb-5" >
+            <form  class="FormularioAjax" data-form="read" action="http://localhost/empathy/EMP4THY/ajax/AjaxMensaje.php" method="post">      
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea name="leido" id="" class="form-control" placeholder="Tomate tu tiempo ;)" disabled cols="30" rows="10">'.$row["CuerpoMensaje"].'</textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                
+                <div class="col-md-3 mr-auto">
+                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Marcr como leido :)">
+                </div>
+              </div>
+              <div class="RespuestaAjax"></div>
+            </form>
+          </div>
+        </div>  
+      </div>
+    </div>
+
+    
+                ';
+            }
+
+            return $m;
+
+
+
+        }
+
+        public function finalizarConversacionControlador(){
+
+
+            
 
 
 

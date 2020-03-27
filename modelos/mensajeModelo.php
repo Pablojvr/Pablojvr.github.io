@@ -66,9 +66,24 @@ require_once "../core/configGeneral.php";
             $sql->bindParam(":Destino",$destino);
             $sql->execute();
             return $sql;
-
-
         }
+
+        protected function recibirConversacionModelo($codigoSesion){
+            $sql=mainModelo::conectar()->prepare(" select * from mensaje where CuentaUsuario = :Codigo and Estado = 'Leido';");
+            $sql->bindParam(":Codigo",$codigoSesion);
+            $sql->execute();
+            return $sql;
+        }
+
+        public function numeroConversacionessModelo($destino){
+            $sql=mainModelo::conectar()->prepare("select idMensaje from mensaje where CuentaDestino = :Destino and Estado = 'Leido'" );
+            $sql->bindParam(":Destino",$destino);
+            $sql->execute();
+            return $sql;
+        }
+
+
+
 
 
 

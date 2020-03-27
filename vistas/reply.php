@@ -1,19 +1,11 @@
 <?php
-
-@session_start();
-  
-  if(!isset($_SESSION["usuario_EMP"])){
-    require_once 'login.php';
-    exit();
-  }
-
+  @session_start();
   require_once '../controladores/mensajeControlador.php';
-  $resp= new mensajeControlador();
   require_once '../modelos/mensajeModelo.php';
+  $resp= new mensajeControlador();
   $Mm= new mensajeModelo();
-     
-  $numM=$Mm->numeroMensajesModelo($_SESSION["nombre_EMP"])->rowCount();
-
+  
+  
 
 ?>
 
@@ -27,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
- 
+
     <link rel="stylesheet" href="../fonts/icomoon/style.css">
     <link rel="stylesheet" href="../css/sweetalert2.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -92,55 +84,24 @@
         </div>
 
       </header>
-      <?php
- 
- echo $resp->recibirMensajeControlador();
-    
-    ?>
-
-
-<?php if($numM>=1){ echo ''; }else{ echo ''; } ?>
 
     <div class="ftco-blocks-cover-1">
       <div class="site-section-cover half-bg">
         <div class="container">
           <div class="row align-items-center justify-content-center">
              <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up"><?php if($numM>=1){ echo 'Lo sentimos tienes un mensaje pendiente de respuesta, tienes que responder antes de realizar otra publicacion :('; }else{ echo 'Recuerda, tus palabras son anonimas, por ello evita dar tu informacion personal.'; } ?></h2>
-              <p data-aos="fade-up" data-aos-delay="100"><a  <?php if($numM>=1){ echo 'href="answer.php"'; }else{ echo 'href="#form"'; } ?> class="more-29291"><?php if($numM>=1){ echo 'Responder'; }else{ echo 'Empezar'; } ?></a></p>
+              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up">Alguien respondió tu mensaje, te dejamos el hilo de la conversación :D </h2>
+              <p data-aos="fade-up" data-aos-delay="100"><a href="#resp" class="more-29291">Leer</a></p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <?php echo $resp->recibirConversacionControlador();  ?>
 
-    <div id="form" class="site-section bg-left-half">
-      <div  class="container "> 
-      <div class="col-lg-8">
-              <h2 class="mb-5 text-primary font-weight-bold"  data-aos="fade-up"><?php if($numM>=1){ echo 'Lo sentimos :('; }else{ echo 'Cuentanos'; } ?></h2>
-            </div> 
-        <div class="row">
-       
-          <div class="col-lg-12 mb-5" >
-            <form class="FormularioAjax" data-form="insertar" action="http://localhost/empathy/EMP4THY/ajax/AjaxMensaje.php" method="post">      
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea name="mensaje" <?php if($numM>=1){ echo ' disabled  placeholder="El area de texto se encuentra deshabilitada :(" '; }else{ echo ' placeholder="¿Tienes algo que decir?" '; } ?> id="" class="form-control" placeholder="¿Tienes algo que decir?" cols="30" rows="10"></textarea>
-                </div>
-              </div>
-              <div class="form-group row">
-                
-                <div class="col-md-3 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" <?php if($numM>=1){ echo 'disabled value=":("'; }else{ echo 'value="Enviar mensaje"'; } ?> >
-                </div>
-              </div>
-              <div class="RespuestaAjax"></div>
-            </form>
-          </div>
-        </div>  
-      </div>
-    </div> <!-- END .site-section -->
+
+     <!-- END .site-section -->
 
     
 
@@ -170,7 +131,7 @@
     
 
     </div>
- 
+    
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery-migrate-3.0.0.js"></script>
     <script src="../js/popper.min.js"></script>

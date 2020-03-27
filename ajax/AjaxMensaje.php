@@ -26,7 +26,21 @@ if ( isset($_POST['mensaje']) ){
     
     
     } else {
-        echo ' no enviado ): ';
+        if ( isset($_POST['leido']) ){
+            require_once "../controladores/MensajeControlador.php";
+            $insAdmin = new mensajeControlador();
+        
+            if( isset($_POST['leido'])){
+                echo $insAdmin->finalizarConversacionControlador();
+            }
+        
+        
+        }else{
+
+            echo 'no enviado ):';
+
+
+        }
     }
 }
 

@@ -16,16 +16,16 @@
                     "Usuario" => $usuario,
                     "Clave" => $clave
                 ];
-
+                
                 $datosCuenta=loginModelo::iniciarSesionModelo($datosLogin);
                 if($datosCuenta->rowCount()>=1){
                     $row=$datosCuenta->fetch();
-                    session_start(['name' => 'EMP']);
+                   @session_start(['name' => 'EMP']);
                     $_SESSION['usuario_EMP']=$row["NombreUsuario"];
                     $_SESSION['nombre_EMP']=$row["CuentaUsuario"];
                     $_SESSION['token_EMP']=md5(uniqid(mt_rand(),true));
                     $_SESSION['estado_EMP']=$row["Estado"];
-                    return $urlLocation = '<script>  location.reload(); </script>';
+                    return $urlLocation = '<script>  window.location="../index.php" </script>';
 
                 }else{
                 $alerta=[

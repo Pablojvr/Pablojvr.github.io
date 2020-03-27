@@ -442,22 +442,24 @@ jQuery(document).ready(function($) {
 
 	var msjError="<script>swal('Ocurrió un error inesperado','Por favor recargue la página','error');</script>";
 	var formdata = new FormData(this);
-
+	var title2 = "¿Quieres enviar este post?";
 
 	var textoAlerta;
 	if(tipo==="save"){
 		textoAlerta="Los datos que enviaras quedaran almacenados en el sistema";
+		
 	}else if(tipo==="delete"){
 		textoAlerta="Los datos serán eliminados completamente del sistema";
 	}else if(tipo==="insertar"){
 		textoAlerta="Recuerda todo es anonimo, solo tu sabras que escribiste el mensaje :)";
 	}else{
-		textoAlerta="Quieres realizar la operación solicitada";
+		textoAlerta="Esto marca el fin del hilo, esperamos hayas tenido una buena experiencia :)";
+		title2 = "Marcar como leido";
 	}
 
 
 	swal({
-		title: "¿Quieres enviar este post?",   
+		title: title2,   
 		text: textoAlerta,   
 		type: "question",   
 		showCancelButton: true,     
