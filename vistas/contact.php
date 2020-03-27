@@ -13,7 +13,8 @@
   $Mm= new mensajeModelo();
      
   $numM=$Mm->numeroMensajesModelo($_SESSION["nombre_EMP"])->rowCount();
-
+  $Mm= new mensajeModelo();
+  $numC=$Mm->numeroConversacionesModelo($_SESSION["nombre_EMP"])->rowCount();
 
 ?>
 
@@ -83,6 +84,7 @@
                   <li  class="active"><a href="contact.php" class="nav-link">Empezar</a></li>
                   <li ><a href="about.php" class="nav-link">¿Como Funciona?</a></li>
                   <?php if(isset($_SESSION["usuario_EMP"])){ echo '<li ><a href="'.$_SESSION["token_EMP"].'" class="btn-exit-system"  class="nav-link logout" style=" color:red;">Cerrar Sesion</a></li>'; } ?>
+                  <?php if($numC>=1){ echo '<li ><a href="reply.php"  style=" color:green;" class="nav-link">Nueva notificacion</a></li>'; } ?>
                 </ul>
               </nav>
             </div>

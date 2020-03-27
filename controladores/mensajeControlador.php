@@ -349,7 +349,7 @@ require_once '../modelos/mensajeModelo.php';
     <div  class="site-section bg-left-half">
       <div  class="container "> 
       <div class="col-lg-8">
-              <h2  class="mb-5 text-primary font-weight-bold" >Tu mensaje</h2>
+              <h2  class="mb-5 text-primary font-weight-bold" >Respuesta a tu mensaje:</h2>
             </div> 
         <div class="row" id="m">
        

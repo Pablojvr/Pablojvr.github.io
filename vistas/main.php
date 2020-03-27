@@ -1,11 +1,16 @@
 
+<?php 
+
+ 
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
     <title>EMP4THY - Let Us Read You</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+   
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -66,6 +71,7 @@
                   <li><a href="./vistas/contact.php" class="nav-link">Empezar</a></li>
                   <li ><a href="./vistas/about.php" class="nav-link">¿Como Funciona?</a></li>
                   <?php if(isset($_SESSION["usuario_EMP"])){ echo '<li ><a href="'.$_SESSION["token_EMP"].'" class="btn-exit-system"  class="nav-link logout" style=" color:red;">Cerrar Sesion</a></li>'; } ?>
+                 
                 </ul>
               </nav>
             </div>
@@ -152,6 +158,8 @@
 
 
     <script src="js/main.js"></script>
+
+    
 
   </body>
 

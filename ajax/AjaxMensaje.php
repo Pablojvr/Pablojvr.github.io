@@ -6,7 +6,6 @@ require_once "../core/configGeneral.php";
 
 //mensaje
 if ( isset($_POST['mensaje']) ){
-    echo '<script>alert("ola");</script>';
     require_once "../controladores/MensajeControlador.php";
     $insAdmin = new mensajeControlador();
 
